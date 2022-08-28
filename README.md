@@ -10,3 +10,5 @@ Chirp is a clone of Twitter where users can create an account and make posts to 
 - `pipenv install` Create the virtual environment and install dependencies
 - `pipenv shell` Enter the new virtual environment
 - `python manage.py runserver` Run the server or go to localhost:8000 to view the chirp app!
+
+This app was built using Django, HTML, and CSS.
