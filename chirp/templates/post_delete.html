@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="delete-post">
+    <h1>Delete Chirp?</h1>
+    <form action="" method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <p>Are you sure you want to delete the chirp titled "{{ post.title }}"?</p>
+        <button type="submit">Yes</button>
+    </form>
+</div>
+
+{% endblock content %}
