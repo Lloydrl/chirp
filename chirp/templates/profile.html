@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="text-center pt-3">
-    <!-- PROFILE PHOTO -->
+    <img src="{{ user.profile.image.url }}" style="width: 10em; height: 10em; object-fit: cover; border-radius: 50%;">
     <h1>{{ profile.username }}</h1>
     <p class="font-italic">Joined {{ profile.date_joined }}</p>
 </div>

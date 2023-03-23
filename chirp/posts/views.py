@@ -16,7 +16,7 @@ class ChirpDetailView(DetailView):
 class ChirpCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'post_create.html'
-    fields = ['title', 'body']
+    fields = ['title', 'body', 'photo']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
