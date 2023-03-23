@@ -1,15 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="login">
-    <h1>Login</h1>
-    <div class="login-form">
+
+<div class="card text-center mx-auto" style="width:40%; margin-top: 3em;">
+    <h5 class="card-header">Login</h5>
+    <div class="card-body">
         <form action="" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Login</button>
+            <div class="card-text">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-info">Login</button>
+            </div>
         </form>
+        <p class="text-muted pt-3">Don't have an account yet? Click <a class="text-info" href="{% url 'users:create_account' %}">here</a> to create an account!</p>
     </div>
-</div>
+  </div>
 
 {% endblock content %}

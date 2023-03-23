@@ -2,14 +2,18 @@
 
 {% block content %}
 
-<div class="create">
-    <h1>Create Account</h1>
-    <div class="create-form">
+<div class="card text-center mx-auto" style="width:40%; margin-top: 3em;">
+    <h5 class="card-header">Create Account</h5>
+    <div class="card-body">
         <form action="" method="post">
-            {%csrf_token%}
-            {{form.as_p}}
-            <div class="create-btn"><button type="submit">Create Account</button></div>
+            <div class="card-text text-left">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="text-center"><button type="submit" class="btn btn-info">Create Account</button></div>
+            </div>
         </form>
+        <p class="text-muted pt-3">Already have an account? Click <a class="text-info" href="{% url 'login' %}">here</a> to login!</p>
     </div>
-</div>
+  </div>
+
 {% endblock content %}
