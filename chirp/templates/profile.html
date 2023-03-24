@@ -10,12 +10,32 @@
 
 {% for post in profile.posts.all %}
 <div class="p-3">
-    <div class="m-auto" style="width: 75%;">
+    <div class="m-auto">
         <div class="card">
             <div class="card-body">
-                <p><a style="color:rgb(0, 77, 77);" href="{%  url 'posts:detail' post.pk %}">{{ post.title }}</a></p>
-                <p class="text-muted font-italic font-weight-light">{{ post.created }}</p>
-                <p>{{ post.body }}</p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-2 text-right">
+                            <!-- PROFILE IMAGE -->
+                            <img src="{{ user.profile.image.url }}" style="width: 3em; height: 3em; border-radius: 50%;">
+                        </div>
+                        <div class="col">
+                            <div class="d-flex flex-row justify-content-between">
+                                <div>
+                                    <p><a class="text-info" href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a> | <a style="color:rgb(0, 77, 77);" href="{%  url 'posts:detail' post.pk %}">{{ post.title }}</a></p>
+                                    <p class="text-muted font-italic font-weight-light">{{ post.created }}</p>
+                                </div>
+                                <div>
+                                    {% if user == post.author %}
+                                    <p class="btn btn-outline-info"><a style="color: rgb(0, 77, 77);" href="{% url 'posts:delete' post.pk %}">Delete Chirp</a></p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <p>{{ post.body }}</p>
+                            <img src="{{ post.photo.url }}" style="width: 50%; border-radius: 5%;">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
